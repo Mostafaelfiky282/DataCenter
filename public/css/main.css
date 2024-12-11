@@ -1,0 +1,79 @@
+/* start of global style */
+body{
+    font-family: 'Cairo', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+h1 h2 h3 h4 h5 h6 .navbar-brand{
+    font-family: "Montserrat", sans-serif;
+}
+/* end of global style */
+
+.header{
+    background-image: url(../images/638633915881187733.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 50px 50px;
+}
+.header::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(46, 62, 125, 0.7);
+    border-radius: 0 0 50px 50px;
+}
+.header .image{
+    width: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+.header img{
+    z-index: 2;
+    width: 100%;
+}
+.navbar ul{
+    position: relative;
+    top: -30;
+    border-radius: 10px;
+    background-color: #002f5f;
+}
+
+.dropdown-menu{
+    background-color: #002f5f;
+}
+.dropdown-menu li a{
+    color: white;
+}
+.footer{
+    background-color: #002f5f;
+    color: white;
+    border-radius: 50px 50px 0 0;
+    display: flex;
+    justify-content: space-around;
+    height: 80vh;
+}
+.footer .show{
+    padding: 80px 0 80px 0;
+    text-align: center;
+
+}
+.footer .logo{
+    padding: 80px 0 80px 0;
+}
+.footer .logo h2{
+    padding-right: 15px;
+}
+.footer .logo .icons{
+    padding-right: 15px;
+}
+.footer .Complaints{
+    padding: 80px 0 80px 0;
+    text-align: center;
+}
