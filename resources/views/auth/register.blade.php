@@ -52,21 +52,18 @@
                 <div class="input-group">
                     <select id="college" name="college" class="form-control" dir="rtl">
                         <option value="" disabled {{ old('college') ? '' : 'selected' }}>اختر الكلية</option>
-                        <option value="الهندسة" {{ old('college') == 'الهندسة' ? 'selected' : '' }}>كلية الهندسة
-                        </option>
-                        <option value="الحاسبات و المعلومات"
-                            {{ old('college') == 'الحاسبات و المعلومات' ? 'selected' : '' }}>كلية الحاسبات و المعلومات
-                        </option>
-                        <option value="العلوم" {{ old('college') == 'العلوم' ? 'selected' : '' }}>كلية العلوم</option>
-                        <option value="التجارة" {{ old('college') == 'التجارة' ? 'selected' : '' }}>كلية التجارة
-                        </option>
-                        <option value="الاداب" {{ old('college') == 'الاداب' ? 'selected' : '' }}>كلية الآداب</option>
+                        @foreach ($colleges as $college)
+                            <option value="{{ $college->name }}" {{ old('college') == $college->name ? 'selected' : '' }}>
+                                كلية {{ $college->name }}
+                            </option>
+                        @endforeach
                     </select>
                     <span class="icon"><i class="fas fa-list"></i></span>
                 </div>
                 @error('college')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
+                
 
                 <div class="input-group">
                     <input type="password" id="password" name="password" class="form-control"

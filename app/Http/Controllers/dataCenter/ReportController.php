@@ -16,7 +16,6 @@ class ReportController extends Controller
     public function generateReport(Request $request)
     {
         $college = $request->input('college');
-
         $students = Student::when($college, function ($query, $college) {
             return $query->where('college', $college);
         })->get();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dataCenter;
 
 use App\Models\User;
+use App\Models\College;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ class AuthController extends Controller
 {
     public function register()
     {
-        return view("auth.register");
+        $colleges = College::all();
+        return view("auth.register", compact('colleges'));
     }
     public function store(Request $request)
     {
@@ -30,8 +32,6 @@ class AuthController extends Controller
         return redirect('/home')->with('success', "تم انشاء حساب بنجاح");
 
     }
-
-
 
     public function login()
     {

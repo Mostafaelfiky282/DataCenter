@@ -94,9 +94,7 @@ class StudentController extends Controller
 
         return redirect()->route('report')->with('success', 'تم تحديث بيانات الطلاب بنجاح');
     }
-
-   
-    
+ 
 
 public function excel($id)
 {

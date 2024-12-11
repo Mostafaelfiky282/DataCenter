@@ -34,23 +34,44 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="fa fa-school"></i>
                                 <p>
                                     الكليات
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../../index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="{{url('/add-college')}}" class="nav-link">
+                                        <i class="fa fa-university nav-icon"></i>
                                         <p>اضافة كلية</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="{{route('college.show')}}" class="nav-link">
+                                        <i class="fa fa-university nav-icon"></i>
                                         <p>عرض كل الكليات</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-school"></i>
+                                <p>
+                                الاقسام                                
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('departments.add')}}" class="nav-link">
+                                        <i class="fa fa-university nav-icon"></i>
+                                        <p>اضافة قسم</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('departments.show')}}" class="nav-link">
+                                        <i class="fa fa-university nav-icon"></i>
+                                        <p>عرض كل الاقسام</p>
                                     </a>
                                 </li>
                             </ul>
