@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CollegeController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\YearController;
 
 Route::get('/dash', [dashboardController::class, 'index']);
 
@@ -20,3 +21,10 @@ Route::get('/departments.show', [DepartmentController::class, 'show'])->name('de
 Route::delete('/departments/{department}', [DepartmentController::class, 'destroy'])->name('department.destroy');
 Route::get('/departments/{id}/edit', [DepartmentController::class, 'edit'])->name('departments.edit');
 Route::put('/departments/{id}', [DepartmentController::class, 'update'])->name('departments.update');
+
+Route::get('/years-add', [YearController::class, 'index'])->name('years.add');
+Route::post('/create-year', [YearController::class, 'store'])->name('year.create');
+Route::get('/year.show', [YearController::class, 'show'])->name('year.show');
+Route::delete('/years/{year}', [YearController::class, 'destroy'])->name('year.destroy');
+Route::get('/years/{id}/edit', [YearController::class, 'edit'])->name('years.edit');
+Route::put('/years/{id}', [YearController::class, 'update'])->name('year.update');

@@ -15,7 +15,7 @@
 <body>
     <div class="login-container">
         <div class="form">
-            <form class="login-form" method="POST" action="{{ route('auth.store') }}" novalidate>
+            <form class="login-form" method="POST" action="{{route('auth.store')}}" novalidate>
                 @csrf
                 <h2>إنشاء حساب</h2>
                 <div class="input-group">

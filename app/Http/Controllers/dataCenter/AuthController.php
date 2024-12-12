@@ -16,7 +16,7 @@ class AuthController extends Controller
         return view("auth.register", compact('colleges'));
     }
     public function store(Request $request)
-    {
+    {    
         $date = $validatedData = $request->validate([
             'name' => 'required|string|max:255|min:3',
             'email' => 'required|string|email|max:255|unique:users',

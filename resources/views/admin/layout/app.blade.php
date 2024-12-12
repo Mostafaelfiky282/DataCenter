@@ -76,6 +76,28 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-school"></i>
+                                <p>
+                                السنوات الدراسية                                
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('years.add')}}" class="nav-link">
+                                        <i class="fa fa-calender nav-icon"></i>
+                                        <p>اضافة سنة</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('year.show')}}" class="nav-link">
+                                        <i class="fa fa-university nav-icon"></i>
+                                        <p>عرض كل السنوات</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>

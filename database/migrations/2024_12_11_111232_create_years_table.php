@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('years', function (Blueprint $table) {
             $table->id();
-            $table->  ,.('value');
+            $table->string('value');
+            $table->enum('status',['active', 'disabled']);
             $table->timestamps();
         });
     }
