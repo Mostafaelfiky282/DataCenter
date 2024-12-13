@@ -17,12 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    public function college(){
+        return $this->belongsTo(College::class);
+    } 
+     protected $fillable = [
         'name',
         'email',
         'password',
         'role',
-        'college'
+        'college_id'
     ];
 
     /**

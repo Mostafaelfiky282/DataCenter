@@ -11,5 +11,9 @@ class College extends Model
     return $this->hasMany(Department::class, 'college_id', 'id');
 }
 
+public function users(){
+    return $this->hasMany(User::class, 'college_id', 'id');
+}
+
     protected $fillable = ['name'];
 }

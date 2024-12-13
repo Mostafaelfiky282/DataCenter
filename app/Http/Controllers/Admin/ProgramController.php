@@ -39,4 +39,24 @@ class ProgramController extends Controller
         $program->delete();
         return redirect()->route('program.show')->with('success', 'تم الحذف بنجاح');
     }
+
+    public function edit($id){
+        $colleges = College::all();
+        $departments = Department::all();
+        $program = Program::findOrFail($id);
+        return view('admin.program.edit', compact('program', 'colleges', 'departments'));
+    }
+    public function update(Request $request, $id){
+        $request->validate([
+            'college' =>'required|string|max:255|min:1',
+            'department' =>'required|string|max:255|min:1',
+            'program' =>'required|string|max:255|min:3'
+        ]);
+        $program = Program::findOrFail($id);
+        $program->college_id = $request->college;
+        $program->department_id = $request->department;
+        $program->name = $request->program;
+        $program->save();
+        return redirect()->route('program.show')->with('success', 'تم التعديل بنجاح');
+    }
 }

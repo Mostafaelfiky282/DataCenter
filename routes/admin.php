@@ -4,11 +4,12 @@ use App\Http\Controllers\Admin\CollegeController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\YearController;
 
 Route::get('/dash', [dashboardController::class, 'index']);
 
-Route::get('/add-college', [CollegeController::class, 'index'])->name('add-college');
+Route::get('/college-add', [CollegeController::class, 'index'])->name('add-college');
 Route::post('/create-college', [CollegeController::class, 'store'])->name('create-college');
 Route::get('/college.show', [CollegeController::class, 'show'])->name('college.show');
 Route::delete('/colleges/{college}', [CollegeController::class, 'destroy'])->name('college.destroy');
@@ -31,6 +32,15 @@ Route::get('/years/{id}/edit', [YearController::class, 'edit'])->name('years.edi
 Route::put('/years/{id}', [YearController::class, 'update'])->name('year.update');
 
 Route::get('/programs.add', [ProgramController::class, 'index'])->name('program.add');
-Route::post('/program-year', [ProgramController::class, 'store'])->name('program.create');
+Route::post('/program-yea', [ProgramController::class, 'store'])->name('program.create');
 Route::get('/program.show', [ProgramController::class, 'show'])->name('program.show');
 Route::delete('/programs/{program}', [ProgramController::class, 'destroy'])->name('program.destroy');
+Route::get('/programs/{id}/edit', [ProgramController::class, 'edit'])->name('programs.edit');
+Route::put('/programs/{id}', [ProgramController::class, 'update'])->name('program.update');
+
+Route::get('/users.add', [RegisterController::class, 'register'])->name('users.add');
+Route::post('/users.create', [RegisterController::class, 'store'])->name('users.create');
+Route::get('/users.show', [RegisterController::class, 'show'])->name('users.show');
+Route::delete('/users/{user}', [RegisterController::class, 'destroy'])->name('users.destroy');
+Route::get('/users/{id}/edit', [RegisterController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [RegisterController::class, 'update'])->name('users.update');

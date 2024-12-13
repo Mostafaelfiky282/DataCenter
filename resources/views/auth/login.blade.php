@@ -45,9 +45,6 @@
                 <button type="submit">تسجيل الدخول</button>
             </form>
         </div>
-        <div class="register-link">
-            لا تمتلك حساب؟ <a href="{{ url('/register') }}"> انشاء حساب جديد </a>
-        </div>
     </div>
 </body>
 

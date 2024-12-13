@@ -10,29 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register()
-    {
-        $colleges = College::all();
-        return view("auth.register", compact('colleges'));
-    }
-    public function store(Request $request)
-    {    
-        $date = $validatedData = $request->validate([
-            'name' => 'required|string|max:255|min:3',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required',
-            'role' => 'required|string|max:255|min:4',
-            'college' => 'required|string|max:255|min:3'
-        ]);
-
-        $user = User::create($date);
-
-        Auth::login($user);
-        return redirect('/home')->with('success', "تم انشاء حساب بنجاح");
-
-    }
-
     public function login()
     {
         return view("auth.login");

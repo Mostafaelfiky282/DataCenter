@@ -5,7 +5,6 @@ use App\Http\Controllers\dataCenter\AuthController;
 use App\Http\Controllers\dataCenter\HomeController;
 use App\Http\Controllers\dataCenter\ReportController;
 use App\Http\Controllers\dataCenter\StudentController;
-use App\Http\Controllers\dataCenter\CategoryController;
 
 Route::get('/home', [HomeController::class, 'index']);
 
@@ -14,9 +13,6 @@ Route::post('/student-create', [StudentController::class, 'create']);
 
 Route::get('/', [AuthController::class, 'login']);
 route::post('login', [AuthController::class, "dologin"])->name('auth.do.login');
-
-Route::get('/register', [AuthController::class, 'register']);
-route::post('register', [AuthController::class, "store"])->name('auth.store');
 
 route::post('logout', [AuthController::class, "logout"])->name('auth.logout');
 
