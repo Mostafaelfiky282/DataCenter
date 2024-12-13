@@ -30,8 +30,8 @@
                     </div>
                 </div>
 
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <nav class="mt-2" dir="rtl">
+                    <ul class="nav nav-pills nav-sidebar flex-column"  data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-school"></i>
@@ -80,13 +80,35 @@
                             <a href="#" class="nav-link">
                                 <i class="fa fa-school"></i>
                                 <p>
+                                البرامج                                
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('program.add')}}" class="nav-link">
+                                        <i class="fa fa-university nav-icon"></i>
+                                        <p>اضافة برنامج</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('program.show')}}" class="nav-link">
+                                        <i class="fa fa-university nav-icon"></i>
+                                        <p>عرض كل البرامج</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-school"></i>
+                                <p>
                                 السنوات الدراسية                                
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('years.add')}}" class="nav-link">
-                                        <i class="fa fa-calender nav-icon"></i>
+                                        <i class="fa fa-university nav-icon"></i>
                                         <p>اضافة سنة</p>
                                     </a>
                                 </li>

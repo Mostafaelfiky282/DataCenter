@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CollegeController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\YearController;
 
 Route::get('/dash', [dashboardController::class, 'index']);
@@ -28,3 +29,8 @@ Route::get('/year.show', [YearController::class, 'show'])->name('year.show');
 Route::delete('/years/{year}', [YearController::class, 'destroy'])->name('year.destroy');
 Route::get('/years/{id}/edit', [YearController::class, 'edit'])->name('years.edit');
 Route::put('/years/{id}', [YearController::class, 'update'])->name('year.update');
+
+Route::get('/programs.add', [ProgramController::class, 'index'])->name('program.add');
+Route::post('/program-year', [ProgramController::class, 'store'])->name('program.create');
+Route::get('/program.show', [ProgramController::class, 'show'])->name('program.show');
+Route::delete('/programs/{program}', [ProgramController::class, 'destroy'])->name('program.destroy');
