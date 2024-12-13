@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dataCenter\AuthController;
+use App\Http\Controllers\dataCenter\ExpensesController;
 use App\Http\Controllers\dataCenter\HomeController;
 use App\Http\Controllers\dataCenter\ReportController;
 use App\Http\Controllers\dataCenter\StudentController;
@@ -29,4 +30,11 @@ Route::post('/excel/{id}', [StudentController::class, 'excel'])->name('excel');
 
 Route::post('/chart', [StudentController::class, 'chart'])->name('chart');
 
+Route::get('/expenses', [ExpensesController::class, "index"])->name('expenses');
+Route::post('/expenses-create', [ExpensesController::class, "create"])->name('expenses.create');
+Route::get('/expenses-report', [ExpensesController::class, "report"])->name('expenses.report');
+Route::post('/expenses-show', [ExpensesController::class, "show"])->name('expenses.show');
+Route::delete('/expenses/{expense}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
+Route::get('/expenses/{id}/edit', [ExpensesController::class, 'edit'])->name('expenses.edit');
+Route::put('/expenses/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
 include ('admin.php');

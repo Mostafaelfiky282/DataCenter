@@ -40,7 +40,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">احصائيات الاداره الهندسيه</a>
+                                <a class="dropdown-item" href="{{url('/expenses')}}">احصائيات المصاريف</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">احصائيات الدراسات العليا</a>
@@ -65,7 +65,7 @@
                                 <a class="dropdown-item" href="#">احصائيات اعضاء هيئة التدريس</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">المصاريف</a>
+                                <a class="dropdown-item" href="{{route('expenses.report')}}"> احصائيات المصاريف </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">احصائيات الدراسات العليا</a>

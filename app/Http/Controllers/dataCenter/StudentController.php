@@ -13,7 +13,7 @@ class StudentController extends Controller
         return view('student.add');
     }
 
-    public function create(request $request)
+public function create(request $request)
     {
         $request->validate([
             'college' => ['required', 'string', 'max:50', 'min:3'],
