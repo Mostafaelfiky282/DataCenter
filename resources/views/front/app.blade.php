@@ -98,7 +98,7 @@
     @yield('content')
     <div class="footer">
         <div class="show">
-            <h2 class="fw-bold fs-1">رؤية الجامعة</h2>
+            <h2 class="fw-bold ">رؤية الجامعة</h2>
             <p>
                 تتمحور الرؤية الاستراتيجية لجامعة دمنهور حول بناء <br />
                 مركز تنافسي متميز في مجال التعليم <br />والبحث العلمي محليا ودوليا
@@ -108,7 +108,7 @@
                 وتوليد معارف ومهارات جديدة ومبتكرة تكرس الهوية <br />
                 المصرية والقيم الجامعية. <br /><br />
             </p>
-            <h2 class="fw-bold fs-1">رسالة الجامعة</h2>
+            <h2 class="fw-bold ">رسالة الجامعة</h2>
             <p>
                 تسعى الجامعة الي تحقيق الريادة والتميز بين الجامعات <br />
                 المصرية والعربية والعالمية من خلال التطوير المستمر في <br />
@@ -117,28 +117,22 @@
             </p>
         </div>
         <div class="logo">
-            <img src="{{ asset('images/R.png') }}" alt="logo" />
-            <br /><br /><br />
-            {{-- <h2 class="fw-bold fs-1">تواصل معنا</h2> --}}
-            <br />
-            {{-- <div class="icons justify-content-between fs-2">
-          <i class="fa-brands fa-square-facebook"></i>
-          <i class="fa-brands fa-square-instagram"></i>
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-youtube"></i>
-        </div> --}}
+            <img src="{{ asset('images/R.png') }}" alt="logo" width="255px" />
+           <div class="text-center">
+            <p dir="ltr">&copy; 2025 Mustafa Elfiky. All rights reserved.</p>
+           </div>
         </div>
         <div class="Complaints">
-            <h2 class="fw-bold fs-1">منظومة الشكاوي الحكومية</h2>
+            <h2 class="fw-bold ">منظومة الشكاوي الحكومية</h2>
             <p>
                 البوابة الالكترونية لمنظومة الشكاوي تم انشاؤها لتحقيق <br />
                 التواصل المباشر مع المواطن المصري عبر تكنولوجيا <br />
                 المعلومات والاتصالات ، وذلك لتخفيف المعاناة وسعيا <br />
                 للارتقاء بمستوى الخدمات المقدمة له
             </p>
-            <h2 class="fw-bold fs-1">16528</h2>
+            <h2 class="fw-bold ">16528</h2>
             <br /><br />
-            <h2 class="fw-bold fs-1">اتصل بنا الان</h2>
+            <h2 class="fw-bold ">اتصل بنا الان</h2>
             <p dir="ltr">(002)(045)-3368069</p>
         </div>
     </div>

@@ -10,6 +10,8 @@
         <title>Student Chart</title>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/excel.css') }}">
+
     </head>
 
     <body>
@@ -20,7 +22,7 @@
         <canvas id="studentChart" width="400" height="150"></canvas>
         <script>
             const studentData = {
-                labels: ['Total Students', 'Male Freshmen', 'Female Freshmen', 'Remaining Males', 'Remaining Females'],
+                labels: ['العدد الكلي', 'الطلاب الذكور الجدد', 'الطلاب الاناث الجدد', 'الطلاب الذكور الباقيين','الطلاب الذكور الباقيين'],
                 datasets: [{
                     label: 'Number of Students',
                     data: [{{ $total_students}}, {{ $male_freshmen }}, {{ $female_freshmen }}, {{ $male_remain }}, {{ $female_remain }}],
@@ -52,13 +54,13 @@
                             beginAtZero: true,
                             title: {
                                 display: true,
-                                text: 'Number of Students'
+                                text: 'عدد الطلاب'
                             }
                         },
                         x: {
                             title: {
                                 display: true,
-                                text: 'Categories'
+                                text: ''
                             }
                         }
                     }
@@ -69,6 +71,10 @@
             const ctx = document.getElementById('studentChart').getContext('2d');
             const studentChart = new Chart(ctx, config);
         </script>
+         <form class="excel" method="POST" action="{{route('excel',$student->id ?? '')}}">
+            @csrf
+            <button type="submit" class="export-button">حفظ Excel</button>
+        </form>
         @endif
     </body>
 

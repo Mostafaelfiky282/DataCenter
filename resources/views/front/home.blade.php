@@ -35,27 +35,27 @@
             <div class="statistics">
                 <div class="stat">
                     <i class="fas fa-user-graduate"></i>
-                    <p class="number"></p>
-                    <p class="label">عدد طلاب الجامعة</p>
-                    <p>12520</p>
+                    
+                    <p class="label fw-bold ">عدد طلاب الجامعة</p>
+                    <p class="fw-bold" style="padding-top: 20px">12520</p>
                 </div>
                 <div class="stat">
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <p class="number"></p>
-                    <p class="label">عدد أعضاء هيئة التدريس</p>
-                    <p>530</p>
+                    
+                    <p class="label fw-bold">عدد أعضاء هيئة التدريس</p>
+                    <p class="fw-bold">530</p>
                 </div>
                 <div class="stat">
                     <i class="fas fa-user-tie"></i>
-                    <p class="number"></p>
-                    <p class="label">الإداريون</p>
-                    <p>320</p>
+                    
+                    <p class="label fw-bold">الإداريون</p>
+                    <p class="fw-bold" style="padding-top: 20px">320</p>
                 </div>
                 <div class="stat">
                     <i class="fas fa-book"></i>
-                    <p class="number"></p>
-                    <p class="label">طلاب الدراسات العليا</p>
-                    <p>180</p>
+                    
+                    <p class="label fw-bold">طلاب الدراسات العليا</p>
+                    <p class="fw-bold">180</p>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ class AuthController extends Controller
     }
     public function dologin(Request $request)
     {
-        $date = $validatedData = $request->validate([
+        $date = $request->validate([
             'email' => 'required|string|email|max:255',
             'password' => 'required'
         ]);

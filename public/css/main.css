@@ -62,17 +62,16 @@ h1 h2 h3 h4 h5 h6 .navbar-brand{
 .footer .show{
     padding: 80px 0 80px 0;
     text-align: center;
-
 }
 .footer .logo{
     padding: 80px 0 80px 0;
 }
-.footer .logo h2{
+/* .footer .logo h2{
     padding-right: 15px;
-}
-.footer .logo .icons{
+} */
+/* .footer .logo .icons{
     padding-right: 15px;
-}
+} */
 .footer .Complaints{
     padding: 80px 0 80px 0;
     text-align: center;
