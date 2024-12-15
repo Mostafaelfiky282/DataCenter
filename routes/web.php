@@ -18,7 +18,7 @@ route::post('login', [AuthController::class, "dologin"])->name('auth.do.login');
 route::post('logout', [AuthController::class, "logout"])->name('auth.logout');
 
 Route::get('/report', [ReportController::class, "index"])->name('report');
-Route::post('/report-show', [StudentController::class, 'showReport'])->name('report.show');
+Route::post('/report-show', [ReportController::class, 'generateReport'])->name('report.show');
 
 Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
@@ -26,9 +26,9 @@ Route::put('/students/{id}', [StudentController::class, 'update'])->name('studen
 
 Route::post('/students/export', [StudentController::class, 'export'])->name('students.export');
 
-Route::post('/excel/{id}', [StudentController::class, 'excel'])->name('excel');
 
-Route::post('/chart', [StudentController::class, 'chart'])->name('chart');
+Route::post('/chart', [ReportController::class, 'chart'])->name('chart');
+Route::post('/excel', [ReportController::class, 'excel'])->name('excel');
 
 Route::get('/expenses', [ExpensesController::class, "index"])->name('expenses');
 Route::post('/expenses-create', [ExpensesController::class, "create"])->name('expenses.create');

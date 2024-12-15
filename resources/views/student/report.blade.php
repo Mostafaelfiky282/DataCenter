@@ -33,14 +33,12 @@
                 <div class="form-group">
                     <label for="department">القسم</label>
                     <select name="department" id="department" class="form-control">
-                        <option value="" {{ old('department') == '' ? 'selected' : '' }}>القسم</option>
-                        <option value="عام" {{ old('department') == 'عام' ? 'selected' : '' }}>عام</option>
-                        <option value="تكنولوجيا المعلومات"
-                            {{ old('department') == 'تكنولوجيا المعلومات' ? 'selected' : '' }}>تكنولوجيا المعلومات</option>
-                        <option value="علوم الحاسب" {{ old('department') == 'علوم الحاسب' ? 'selected' : '' }}>علوم الحاسب
+                        <option value="" {{ old('department') == '' ? 'selected' : '' }}>اختر القسم</option>
+                        @foreach ($departments as $department)
+                        <option value="{{ $department->name }}" {{ old('department') == $department->name ? 'selected' : '' }}>
+                            {{ $department->name }}
                         </option>
-                        <option value="نظم المعلومات" {{ old('department') == 'نظم المعلومات' ? 'selected' : '' }}>نظم
-                            المعلومات</option>
+                        @endforeach
                     </select>
                     @error('department')
                         <span class="text-danger">{{ $message }}</span>

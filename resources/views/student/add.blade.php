@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="college"> الكلية</label>
-                    <input type="text" value="{{ auth()->user()->college }}" readonly name="college"
+                    <input type="text" value="{{ auth()->user()->college->name }}" readonly name="college"
                         class="form-control">
                     @error('college')
                         <span class="text-danger">{{ $message }}</span>
@@ -35,45 +35,48 @@
                 <div class="form-group">
                     <label for="department">القسم</label>
                     <select name="department" id="department" class="form-control">
-                        <option value="" {{ old('department') == '' ? 'selected' : '' }}>القسم</option>
-                        <option value="عام" {{ old('department') == 'عام' ? 'selected' : '' }}>عام</option>
-                        <option value="تكنولوجيا المعلومات"
-                            {{ old('department') == 'تكنولوجيا المعلومات' ? 'selected' : '' }}>تكنولوجيا المعلومات</option>
-                        <option value="علوم الحاسب" {{ old('department') == 'علوم الحاسب' ? 'selected' : '' }}>علوم الحاسب
+                        <option value="" {{ old('department') == '' ? 'selected' : '' }}>اختر القسم</option>
+                        @foreach ($departments as $department)
+                        <option value="{{ $department->name }}" {{ old('department') == $department->name ? 'selected' : '' }}>
+                            {{ $department->name }}
                         </option>
-                        <option value="نظم المعلومات" {{ old('department') == 'نظم المعلومات' ? 'selected' : '' }}>نظم
-                            المعلومات</option>
+                        @endforeach
                     </select>
                     @error('department')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="program">البرنامج</label>
                     <select name="program" id="program" class="form-control">
                         <option value="" {{ old('program') == '' ? 'selected' : '' }}>البرنامج</option>
-                        <option value="انتظام" {{ old('program') == 'انتظام' ? 'selected' : '' }}>انتظام</option>
-                        <option value="انتساب" {{ old('program') == 'انتساب' ? 'selected' : '' }}>انتساب</option>
-                        <option value="انتساب موجه" {{ old('program') == 'انتساب موجه' ? 'selected' : '' }}>انتساب موجه
+                        @foreach ($programs as $program)
+                        <option value="{{ $program->name }}" {{ old('program') == $program->name ? 'selected' : '' }}>
+                            {{ $program->name }}
                         </option>
-                        <option value="ذوي احتياجات خاصة" {{ old('program') == 'ذوي احتياجات خاصة' ? 'selected' : '' }}>ذوي
-                            احتياجات خاصة
-                        </option>
+                        @endforeach
                     </select>
                     @error('program')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-
-
-
                 <div class="form-group">
                     <label for="year"> السنة الدراسية</label>
-                    <input type="text" value="2024/2025" readonly name="year" class="form-control">
+                    <select name="year" id="year" class="form-control">
+                        <option value="" {{ old('year') == '' ? 'selected' : '' }}>العام الدراسي</option>
+                        @foreach ($years as $year)
+                        <option value="{{ $year->value }}" {{ old('year') == $year->value ? 'selected' : '' }}>
+                            {{ $year->value }}
+                        </option>
+                        @endforeach
+                    </select>
                     @error('year')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+
+
 
                 <div class="form-group">
                     <label for="level">الفرقة</label>

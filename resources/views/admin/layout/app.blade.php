@@ -130,7 +130,16 @@
                                         <p>عرض كل السنوات</p>
                                     </a>
                                 </li>
+                             
                             </ul>
+                        </li>
+                        <li>
+                            <form action="{{ route('auth.logout') }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link text-light ">
+                                    <i class="fa-solid fa-door-open"></i> خروج
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </nav>
