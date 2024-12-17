@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <h1 class="text-center">Student Breakdown Chart</h1>
+        <h1 class="text-center">عرض بياني عن احصائية الطلاب</h1>
         @if ($total_students === 0)
         <p  class="text-center">لا يوجد طلاب وفقًا للمعايير المحددة.</p>
         @else
@@ -24,7 +24,7 @@
             const studentData = {
                 labels: ['العدد الكلي', 'الطلاب الذكور الجدد', 'الطلاب الاناث الجدد', 'الطلاب الذكور الباقيين','الطلاب الذكور الباقيين'],
                 datasets: [{
-                    label: 'Number of Students',
+                    label: 'عدد الطلاب',
                     data: [{{ $total_students}}, {{ $male_freshmen }}, {{ $female_freshmen }}, {{ $male_remain }}, {{ $female_remain }}],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)', 
@@ -71,10 +71,6 @@
             const ctx = document.getElementById('studentChart').getContext('2d');
             const studentChart = new Chart(ctx, config);
         </script>
-         <form class="excel" method="POST" action="{{route('excel',$student->id ?? '')}}">
-            @csrf
-            <button type="submit" class="export-button">حفظ Excel</button>
-        </form>
         @endif
     </body>
 

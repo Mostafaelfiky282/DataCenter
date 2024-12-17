@@ -50,10 +50,18 @@
                         @endforeach
                     </tbody>
                 </table>
-                <form method="POST" action="{{route('excel',$student->id ?? '')}}">
-                    @csrf
-                    <button type="submit" class="export-button">حفظ Excel</button>
-                </form>
+                        
+                            <div style="display: flex; padding-right:550px; gap:50px;">
+                                <form method="POST" action="{{route('excel',$student->id ?? '')}}">
+                                    @csrf
+                                    <button type="submit" class="export-button">حفظ Excel</button>
+                                </form>
+                                <form method="POST" action="{{ route('chart', ['department' => $student->department, 'level' => $student->level]) }}">
+                                    @csrf
+                                    <button type="submit" class="export-button">عرض مخطط</button>
+                                </form>
+                            </div>
+                            
             @endif
         </div>
     </body>

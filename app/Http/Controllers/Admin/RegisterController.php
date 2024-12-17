@@ -53,12 +53,17 @@ class RegisterController extends Controller
             'name' => ['required','string','max:255','min:3'],
             'email' => ['required','string','email','max:255','unique:users,email,'.$id],
             'role' => ['required','string','max:255','min:4'],
-            'college_id' => ['required','string','max:255','min:1']
+            'college_id' => ['required','string','max:255','min:1'],
+            'password' => 'nullable|min:8|confirmed',
+            'password_confirmation' => 'nullable',
         ]);
 
         $user = User::findOrFail($id);
-        $user->update($request->all());
-
+        if($request->password){
+            $user->update($request->all());
+        }else{
+            $user->update($request->only(['name', 'email', 'role', 'college_id']));
+        }
         return redirect()->route('users.show')->with('success', 'تم التحديث بنجاح');
     }
 }

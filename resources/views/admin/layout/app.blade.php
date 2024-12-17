@@ -13,10 +13,10 @@
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
     <div class="wrapper">
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="" class="brand-link elevation-4">
+            <p href="" class="brand-link elevation-4">
                 <img src="{{ asset('images/R.png') }}" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">جامعة دمنهور</span>
-            </a>
+            </p>
 
             <div class="sidebar">
                 <div class="form-inline mt-3">
@@ -112,6 +112,7 @@
                                 </li>
                             </ul>
                         </li>
+                     
                         <li class="nav-item">
                             <a href="#" class="nav-link {{ request()->is('years*') ? 'active' : '' }}">
                                 <i class="fa fa-school"></i>
@@ -133,11 +134,11 @@
                              
                             </ul>
                         </li>
-                        <li>
-                            <form action="{{ route('auth.logout') }}" method="POST" class="d-inline">
+                        <li class="nav-item bg-danger">
+                            <form action="{{ route('auth.logout') }}" method="POST" class="">
                                 @csrf
                                 <button type="submit" class="btn btn-link nav-link text-light ">
-                                    <i class="fa-solid fa-door-open"></i> خروج
+                                    تسجيل خروج
                                 </button>
                             </form>
                         </li>

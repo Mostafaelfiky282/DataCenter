@@ -22,14 +22,22 @@
             @endif
             <h1>عرض احصائيات الطلاب </h1>
             <form method="post"
-                    action="
-                    @if (auth()->user()->role === 'Admin' || auth()->user()->role === 'Super-Admin')
-                     {{ url('/report-show') }}
-                    @else
-                        {{ url('/chart') }}
-                    @endif
-            ">
-                @csrf
+                    action="{{ url('/report-show') }}">
+                @csrf  
+                <div class="form-group">
+                    <label for="college">الكلية</label>
+                    <select name="college" id="college" class="form-control">
+                        <option value="" {{ old('college') == '' ? 'selected' : '' }}>اختر الكلية   </option>
+                        @foreach ($colleges as $college)
+                        <option value="{{ $college->name }}" {{ old('college') == $college->name ? 'selected' : '' }}>
+                            {{ $college->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                    @error('college')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
                 <div class="form-group">
                     <label for="department">القسم</label>
                     <select name="department" id="department" class="form-control">

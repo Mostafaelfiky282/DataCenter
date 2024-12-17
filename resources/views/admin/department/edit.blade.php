@@ -4,7 +4,7 @@
 <div class="p-4">
     <div class="card card-primary" dir="rtl">
         <div class="card-header">
-          <h3 class=" text-center">تعديل كلية</h3>
+          <h3 class=" text-center">تعديل قسم</h3>
         </div>
         <form method="POST" action="{{route('departments.update',$department->id)}}">
             @csrf
