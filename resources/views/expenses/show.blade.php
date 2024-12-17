@@ -63,7 +63,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <form method="POST" action="{{ route('excel', $student->id ?? '') }}">
+            <form method="POST">
                 @csrf
                 <button type="submit" class="export-button">حفظ Excel</button>
             </form>

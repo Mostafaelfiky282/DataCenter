@@ -43,7 +43,7 @@
                                 <a class="dropdown-item" href="{{url('/expenses')}}">احصائيات المصاريف</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">احصائيات الدراسات العليا</a>
+                                <a class="dropdown-item" href="{{url('/rewords')}}">احصائيات المكافات</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">الانشطه الدوليه بالجامعات</a>
@@ -62,13 +62,10 @@
                                 <a class="dropdown-item" href="{{ url('/report') }}">احصائيات الطلاب </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">احصائيات اعضاء هيئة التدريس</a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item" href="{{route('expenses.report')}}"> احصائيات المصاريف </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">احصائيات الدراسات العليا</a>
+                                <a class="dropdown-item" href="{{route('rewords.report')}}" >احصائيات المكافات </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">الانشطة الدولية بالجامعات</a>

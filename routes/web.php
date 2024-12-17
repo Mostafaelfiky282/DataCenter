@@ -29,7 +29,7 @@ Route::post('/students/export', [StudentController::class, 'export'])->name('stu
 
 
 Route::post('/chart', [ReportController::class, 'chart'])->name('chart');
-Route::post('/excel', [ReportController::class, 'excel'])->name('excel');
+Route::post('/export', [ReportController::class, 'excel'])->name('export');
 
 Route::get('/expenses', [ExpensesController::class, "index"])->name('expenses');
 Route::post('/expenses-create', [ExpensesController::class, "create"])->name('expenses.create');
@@ -46,4 +46,6 @@ Route::post('/rewords-show', [RewordsController::class, "show"])->name('rewords.
 Route::delete('/rewords/{reword}', [RewordsController::class, 'destroy'])->name('rewords.destroy');
 Route::get('/rewords/{id}/edit', [RewordsController::class, 'edit'])->name('rewords.edit');
 Route::put('/rewords/{id}', [RewordsController::class, 'update'])->name('rewords.update');
+Route::post('/excel', [RewordsController::class, 'excel'])->name('rewards.excel');
+Route::post('/piani', [RewordsController::class, 'chart'])->name('piani');
 include ('admin.php');

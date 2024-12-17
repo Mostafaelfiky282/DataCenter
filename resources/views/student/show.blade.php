@@ -56,7 +56,7 @@
                 </table>
                         
                             <div style="display: flex; padding-right:550px; gap:50px;">
-                                <form method="POST" action="{{route('excel',$student->id ?? '')}}">
+                                <form method="POST" action="{{route('export',$student->id ?? '')}}">
                                     @csrf
                                     <button type="submit" class="export-button">حفظ Excel</button>
                                 </form>

@@ -53,20 +53,7 @@ class ReportController extends Controller
             'level' => 'required|string',
             'department' => 'required|string',
         ]);
-
-        $query = Student::where('college', auth()->user()->college->name);
-
-        if ($request->filled('department')) {
-            $query->where('department', $request->input('department'));
-        }
-        if ($request->filled('level')) {
-            $query->where('level', $request->input('level'));
-        }
-
-        if ($request->filled('language')) {
-            $query->where('language', $request->input('language'));
-        }
-        $students = $query->get();
+        $students = session('students', []);
 
         $male_freshmen = $students->sum('male_freshmen');
         $female_freshmen = $students->sum('female_freshmen');

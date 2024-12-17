@@ -17,13 +17,13 @@ class ExpensesController extends Controller
             'college'=> ['string', 'required','max:255','min:3'],
             'nationality'=> ['nullable','string','max:255','min:3'],
             'program'=>['string', 'max:255','min:3'],
-            'level_zero'=> ['numeric','max:255','min:3'],
-            'level_one'=> ['numeric','required','max:255','min:3'],
-            'level_two'=> ['numeric','required','max:255','min:3'],
-            'level_three'=> ['numeric','required','max:255','min:3'],
-            'level_four'=> ['numeric','required','max:255','min:3'],
-            'level_five'=> ['numeric','max:255','min:3'],
-            'level_six'=> ['numeric','max:255','min:3'],
+            'level_zero'=> ['numeric','max:255'],
+            'level_one'=> ['numeric','required','max:255'],
+            'level_two'=> ['numeric','required','max:255'],
+            'level_three'=> ['numeric','required','max:255'],
+            'level_four'=> ['numeric','required','max:255'],
+            'level_five'=> ['numeric','max:255'],
+            'level_six'=> ['numeric','max:255'],
         ]);
         $expenses = new Expenses();
         $expenses->college = $request->college;

@@ -14,7 +14,7 @@
                 <label for="college"> الكلية</label>
                 <select name="college" id="college">
                     <option value=""> الكلية</option>
-                    <option value=">حاسبات ومعلومات">حاسبات ومعلومات</option>
+                    <option value="حاسبات ومعلومات">حاسبات ومعلومات</option>
                     <option value="علوم">علوم</option>
                 </select>
                 @error('college')
