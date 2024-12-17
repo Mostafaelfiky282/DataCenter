@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset('css/delete.css') }}">
     <div class="form-container">
         <h1> بيان بالمصروفات الطلاب الوافدين و البرامج المميزة</h1>
-        <form method="post" action="{{route('expenses.show')}}">
+        <form method="post" action="{{ route('expenses.show') }}">
             @csrf
             @if (session('success'))
                 <div class="alert alert-success text-center">
@@ -46,7 +46,7 @@
                 @enderror
             </div>
 
-            <button type="submit" name="save">عرض</button>
+            <button type="submit" name="save">حفظ</button>
         </form>
     </div>
 @endsection

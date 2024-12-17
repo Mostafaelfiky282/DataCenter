@@ -75,8 +75,8 @@ class ExpensesController extends Controller
     
 
     public function destroy($id){
-        $expenses = Expenses::find($id);
-        $expenses->delete();
+        $expense = Expenses::find($id);
+        $expense->delete();
         return redirect()->route('expenses.report')->with('success', 'تم الحذف بنجاح');
     }
 

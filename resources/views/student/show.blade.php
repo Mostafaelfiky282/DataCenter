@@ -16,11 +16,13 @@
                             <th>القسم</th>
                             <th>الفرقة</th>
                             <th>الجنسية</th>
-                            <th>اللغة</th>
+                            <th>لغة الدراسة</th>
                             <th>المستجدين الذكور</th>
                             <th>المستجدين الاناث</th>
                             <th>الباقين الذكور</th>
                             <th>الباقين الاناث</th>
+                            <th>الحالة</th>
+                            <th> العدد الكلي</th>
                             <th>تعديل</th>
                             <th>حذف</th>
                         </tr>
@@ -37,6 +39,8 @@
                                 <td>{{ $student->female_freshmen }}</td>
                                 <td>{{ $student->male_remain }}</td>
                                 <td>{{ $student->female_remain }}</td>
+                                <td>{{ $student->status }}</td>
+                                <td>{{ $student->female_remain + $student->female_freshmen +$student->male_remain +  $student->male_freshmen}}</td>
                                 <td><a href="{{ route('students.edit', $student->id) }}" class="btn btn-info">تعديل</a></td>
                                 <td>
                                     <br>

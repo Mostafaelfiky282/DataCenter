@@ -5,6 +5,7 @@ use App\Http\Controllers\dataCenter\AuthController;
 use App\Http\Controllers\dataCenter\ExpensesController;
 use App\Http\Controllers\dataCenter\HomeController;
 use App\Http\Controllers\dataCenter\ReportController;
+use App\Http\Controllers\dataCenter\RewordsController;
 use App\Http\Controllers\dataCenter\StudentController;
 
 Route::get('/home', [HomeController::class, 'index']);
@@ -37,4 +38,12 @@ Route::post('/expenses-show', [ExpensesController::class, "show"])->name('expens
 Route::delete('/expenses/{expense}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
 Route::get('/expenses/{id}/edit', [ExpensesController::class, 'edit'])->name('expenses.edit');
 Route::put('/expenses/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
+
+Route::get('/rewords', [RewordsController::class, "index"])->name('rewords');
+Route::post('/rewords-create', [RewordsController::class, "create"])->name('rewords.create');
+Route::get('/rewords-report', [RewordsController::class, "report"])->name('rewords.report');
+Route::post('/rewords-show', [RewordsController::class, "show"])->name('rewords.show');
+Route::delete('/rewords/{reword}', [RewordsController::class, 'destroy'])->name('rewords.destroy');
+Route::get('/rewords/{id}/edit', [RewordsController::class, 'edit'])->name('rewords.edit');
+Route::put('/rewords/{id}', [RewordsController::class, 'update'])->name('rewords.update');
 include ('admin.php');
