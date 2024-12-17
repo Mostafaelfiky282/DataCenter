@@ -38,6 +38,7 @@ Route::post('/expenses-show', [ExpensesController::class, "show"])->name('expens
 Route::delete('/expenses/{expense}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
 Route::get('/expenses/{id}/edit', [ExpensesController::class, 'edit'])->name('expenses.edit');
 Route::put('/expenses/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
+Route::post('/exexcel', [ExpensesController::class, 'excel'])->name('exexcel');
 
 Route::get('/rewords', [RewordsController::class, "index"])->name('rewords');
 Route::post('/rewords-create', [RewordsController::class, "create"])->name('rewords.create');

@@ -40,10 +40,6 @@ class RewordsController extends Controller
        return view('rewards.report');
     }
 
-    
-
-
-
 
     public function destroy($id)
     {

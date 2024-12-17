@@ -63,10 +63,12 @@
                     @endforeach
                 </tbody>
             </table>
-            <form method="POST">
-                @csrf
-                <button type="submit" class="export-button">حفظ Excel</button>
-            </form>
+            
+                <form method="POST" action="{{route('exexcel')}}">
+                    @csrf
+                    <button type="submit" class="export-button">حفظ Excel</button>
+                </form>
+          
             @endif
         </div>
     </body>

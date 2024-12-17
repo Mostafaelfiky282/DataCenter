@@ -68,7 +68,7 @@ class ExpensesController extends Controller
     }
 
     $expenses = $query->get();
-
+    session(['expenses' => $expenses]);
     return view('expenses.show', compact('expenses'));
 }
 
@@ -104,4 +104,42 @@ class ExpensesController extends Controller
         return redirect()->route('expenses')->with('success', 'تم التعديل بنجاح');
 
 }
+
+public function excel(Request $request)
+{
+    $expenses = session('expenses', []);
+
+    header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
+    $filename = "مصاريف.xls";
+
+    header("Content-Disposition: attachment; filename={$filename}");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+
+    echo "\xEF\xBB\xBF";
+    $output = fopen("php://output", "w");
+
+    $headers = ['الكلية', 'الجنسيه', 'برنامج', 'الفرقة الاعدادي','الفرقة الاولي','الفرقة الثانية ','الفرقة الثالثة','الفرقة الرابعة','الفرقة الخامسة','الفرقة السادسة'];
+    fputcsv($output, $headers);
+
+    foreach ($expenses as $expense) {
+        fputcsv($output, [
+            $expense->college,
+            $expense->nationality,
+            $expense->program,
+            $expense->level_zero,
+            $expense->level_one,
+            $expense->level_two,
+            $expense->level_three,
+            $expense->level_four,
+            $expense->level_five,
+            $expense->level_six,
+
+        ]);
+    }
+
+    fclose($output);
+    exit;
+}
+
 }
