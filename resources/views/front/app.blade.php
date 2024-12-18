@@ -36,7 +36,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="{{ url('/student-add') }}">ادخال احصائيات الطلاب
+                                <a class="dropdown-item" href="{{ url('/student-add') }}">احصائيات الطلاب
                                 </a>
                             </li>
                             <li>
@@ -46,7 +46,7 @@
                                 <a class="dropdown-item" href="{{url('/rewords')}}">احصائيات المكافات</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">الانشطه الدوليه بالجامعات</a>
+                                <a class="dropdown-item" href="{{route('financial')}}">المساعدات المالية</a>
                             </li>
                             <li><a class="dropdown-item" href="#">الرعايه الطلابيه</a></li>
                         </ul>
@@ -66,6 +66,9 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{route('rewords.report')}}" >احصائيات المكافات </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('financial.report')}}" > احصائيات المساعدات المالية</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">الانشطة الدولية بالجامعات</a>

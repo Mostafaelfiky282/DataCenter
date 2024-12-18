@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dataCenter\AuthController;
 use App\Http\Controllers\dataCenter\ExpensesController;
+use App\Http\Controllers\dataCenter\FinancialController;
 use App\Http\Controllers\dataCenter\HomeController;
 use App\Http\Controllers\dataCenter\ReportController;
 use App\Http\Controllers\dataCenter\RewordsController;
@@ -49,4 +50,11 @@ Route::get('/rewords/{id}/edit', [RewordsController::class, 'edit'])->name('rewo
 Route::put('/rewords/{id}', [RewordsController::class, 'update'])->name('rewords.update');
 Route::post('/excel', [RewordsController::class, 'excel'])->name('rewards.excel');
 Route::post('/piani', [RewordsController::class, 'chart'])->name('piani');
+
+
+Route::get('/financial', [FinancialController::class, "index"])->name('financial');
+Route::post('/financial-store', [FinancialController::class, "store"])->name('financial.store');
+Route::get('/financial-report', [FinancialController::class, "report"])->name('financial.report');
+Route::post('/financial-show', [FinancialController::class, "show"])->name('financial.show');
+Route::delete('/financial/{financial}', [FinancialController::class, 'destroy'])->name('financial.destroy');
 include ('admin.php');
