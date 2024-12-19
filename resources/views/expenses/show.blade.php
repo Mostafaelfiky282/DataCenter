@@ -27,11 +27,10 @@
                         <th>الفرقة الرابعة</th>
                         <th>الفرقة الخامسة</th>
                         <th>الفرقة السادسة</th>
+                        @if(auth()->user()->role != 'User')
                         <th>تعديل</th>
                         <th>حذف</th>
-
-
-
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +48,7 @@
                         <td>{{$expense->level_four}}</td>
                         <td>{{$expense->level_five}}</td>
                         <td>{{$expense->level_six}}</td>
-                        
+                        @if(auth()->user()->role != 'User')
                         <td><a href="{{route('expenses.edit',$expense->id)}}" class="btn btn-info">تعديل</a></td>
                                 <td>
                                     <br>
@@ -60,6 +59,7 @@
                                     </form>
                                 </td>
                     </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>

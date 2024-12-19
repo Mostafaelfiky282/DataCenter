@@ -14,17 +14,21 @@
                         <tr>
                             <th>الكليه</th>
                             <th>القسم</th>
+                            <th>البرنامج</th>
                             <th>الفرقة</th>
                             <th>الجنسية</th>
                             <th>لغة الدراسة</th>
+                            <th>العام الدراسي</th>
                             <th>المستجدين الذكور</th>
                             <th>المستجدين الاناث</th>
                             <th>الباقين الذكور</th>
                             <th>الباقين الاناث</th>
                             <th>الحالة</th>
                             <th> العدد الكلي</th>
+                            @if(auth()->user()->role != 'User')
                             <th>تعديل</th>
                             <th>حذف</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -32,15 +36,18 @@
                             <tr>
                                 <td>{{ $student->college }}</td>
                                 <td>{{ $student->department }}</td>
+                                <td>{{ $student->program }}</td>
                                 <td>{{ $student->level }}</td>
                                 <td>{{ $student->nationality }}</td>
                                 <td>{{ $student->language }}</td>
+                                <td>{{ $student->year }}</td>
                                 <td>{{ $student->male_freshmen }}</td>
                                 <td>{{ $student->female_freshmen }}</td>
                                 <td>{{ $student->male_remain }}</td>
                                 <td>{{ $student->female_remain }}</td>
                                 <td>{{ $student->status }}</td>
                                 <td>{{ $student->female_remain + $student->female_freshmen +$student->male_remain +  $student->male_freshmen}}</td>
+                                @if(auth()->user()->role != 'User')
                                 <td><a href="{{ route('students.edit', $student->id) }}" class="btn btn-info">تعديل</a></td>
                                 <td>
                                     <br>
@@ -50,6 +57,7 @@
                                         <button type="submit" class="btn btn-danger ">حذف</button>
                                     </form>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

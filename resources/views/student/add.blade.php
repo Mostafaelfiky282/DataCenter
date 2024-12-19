@@ -97,7 +97,7 @@
 
                 <div class="form-group">
                     <label for="nationality">الجنسية</label>
-                    <select name="nationality" id="nationality">
+                    <select name="nationality" id="nationality" class="form-control">
                         <option value="" {{ old('nationality') == '' ? 'selected' : '' }}>الجنسية</option>
                         <option value="مصري" {{ old('nationality') == 'مصري' ? 'selected' : '' }}>مصري</option>
                         <option value="وافد" {{ old('nationality') == 'وافد' ? 'selected' : '' }}>وافد</option>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="form-group">
                     <label for="language">لغة الدراسة</label>
-                    <select name="language" id="language">
+                    <select name="language" id="language" class="form-control">
                         <option value="" {{ old('language') == '' ? 'selected' : '' }}>لغة الدراسة</option>
                         <option value="العربية" {{ old('language') == 'العربية' ? 'selected' : '' }}>العربية</option>
                         <option value="الانجليزية" {{ old('language') == 'الانجليزية' ? 'selected' : '' }}>الانجليزية
@@ -120,7 +120,7 @@
                 </div>
                 <div class="form-group">
                     <label for="status">الحالة</label>
-                    <select name="status" id="status">
+                    <select name="status" id="status" class="form-control">
                         <option value="" {{ old('status') == '' ? 'selected' : '' }}>الحالة</option>
                         <option value="مقيد" {{ old('status') == 'مقيد' ? 'selected' : '' }}>مقيد</option>
                         <option value="خريج" {{ old('status') == 'خريج' ? 'selected' : '' }}>خريج</option>
@@ -132,12 +132,12 @@
                 <div class="form-group">
                     <label for="new_male_students"> عدد الطلاب الذكور الجدد</label>
                     <input type="number" value="{{ old('new_male_students') }}" name="new_male_students"
-                        id="new_male_students">
+                        id="new_male_students" class="form-control">
                     @error('new_male_students')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <label for="new_female_students"> عدد الطلاب الاناث الجدد</label>
-                    <input type="number" value="{{ old('new_female_students') }}" name="new_female_students"
+                    <input type="number" class="form-control" value="{{ old('new_female_students') }}" name="new_female_students"
                         id="new_female_students">
                     @error('new_female_students')
                         <span class="text-danger">{{ $message }}</span>
@@ -159,7 +159,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" name="submit" style="margin-left: -400px;">اضافة</button>
+                <button type="submit" name="submit" style="margin-left: -400px;">حفظ</button>
             </form>
         </div>
     </body>

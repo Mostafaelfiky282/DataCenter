@@ -48,7 +48,7 @@
 
                 <div class="form-group">
                     <label for="type">نوع المساعدة</label>
-                    <select name="type" id="type">
+                    <select name="type" id="type" class="form-control">
                         <option value="">نوع المساعدة</option>
                         <option value="مساعدات مالية" {{ old('type') == 'مساعدات مالية' ? 'selected' : '' }}>مساعدات مالية
                         </option>
@@ -64,25 +64,25 @@
 
                 <div class="form-group">
                     <label for="Male_students_amount"> عدد الطلاب الذكور</label>
-                    <input type="number" value="{{ old('Male_students_amount') }}" name="Male_students_amount"
+                    <input type="number" class="form-control" value="{{ old('Male_students_amount') }}" name="Male_students_amount"
                         id="Male_students_amount">
                     @error('Male_students_amount')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <label for="female_students_amount"> عدد الطلاب الاناث</label>
-                    <input type="number" value="{{ old('female_students_amount') }}" name="female_students_amount"
+                    <input type="number" class="form-control" value="{{ old('female_students_amount') }}" name="female_students_amount"
                         id="female_students_amount">
                     @error('female_students_amount')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <label for="price">المبلغ لكل فرد</label>
-                    <input type="number" value="{{ old('price') }}" name="price"
+                    <input type="number" class="form-control" value="{{ old('price') }}" name="price"
                         id="price">
                     @error('price')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <button type="submit" name="submit" style="margin-left: -400px;">اضافة</button>
+                <button type="submit" name="submit" style="margin-left: -400px;">حفظ</button>
             </form>
         </div>
     </body>

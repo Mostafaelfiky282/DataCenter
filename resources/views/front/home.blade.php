@@ -45,12 +45,7 @@
                     <p class="label fw-bold">عدد أعضاء هيئة التدريس</p>
                     <p class="fw-bold">530</p>
                 </div>
-                <div class="stat">
-                    <i class="fas fa-user-tie"></i>
-                    
-                    <p class="label fw-bold">الإداريون</p>
-                    <p class="fw-bold" style="padding-top: 20px">320</p>
-                </div>
+               
                 <div class="stat">
                     <i class="fas fa-book"></i>
                     

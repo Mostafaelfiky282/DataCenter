@@ -61,19 +61,19 @@
 
                 <div class="form-group">
                     <label for="Male_students_amount">عدد الطلاب الذكور</label>
-                    <input type="number" value="{{$financial->Male_students_amount}}" name="Male_students_amount" id="Male_students_amount">
+                    <input type="number" class="form-control" value="{{$financial->Male_students_amount}}" name="Male_students_amount" id="Male_students_amount">
                     @error('Male_students_amount')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
 
                     <label for="female_students_amount">عدد الطلاب الإناث</label>
-                    <input type="number" value="{{$financial->female_students_amount}}" name="female_students_amount" id="female_students_amount">
+                    <input type="number" class="form-control" value="{{$financial->female_students_amount}}" name="female_students_amount" id="female_students_amount">
                     @error('female_students_amount')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
 
                     <label for="price">المبلغ لكل فرد</label>
-                    <input type="number" value="{{$financial->price}}" name="price" id="price">
+                    <input type="number" class="form-control" value="{{$financial->price}}" name="price" id="price">
                     @error('price')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror

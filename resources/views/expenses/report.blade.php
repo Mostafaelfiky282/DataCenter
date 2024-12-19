@@ -12,11 +12,8 @@
             @endif
             <div class="form-group">
                 <label for="college"> الكلية</label>
-                <select name="college" id="college">
-                    <option value=""> الكلية</option>
-                    <option value="الحاسبات و المعلومات">الحاسبات و المعلومات</option>
-                    <option value="العلوم">العلوم</option>
-                </select>
+                <input type="text" value="{{ auth()->user()->college->name }}" readonly name="college"
+                    class="form-control">
                 @error('college')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -24,7 +21,7 @@
 
             <div class="form-group">
                 <label for="nationality"> الجنسية</label>
-                <select name="nationality" id="nationality">
+                <select name="nationality" id="nationality" class="form-control">
                     <option value=""> الجنسية</option>
                     <option value="سعودي">سعودي</option>
                     <option value="كويتي">كويتي</option>
@@ -35,18 +32,21 @@
             </div>
 
             <div class="form-group">
-                <label for="program"> البرنامج</label>
-                <select name="program" id="program">
-                    <option value=""> البرنامج</option>
-                    <option value="خاص">برنامج خاص</option>
-                    <option value=" ساعات معتمده">برنامج ساعات معتمده</option>
+                <label for="program">البرنامج</label>
+                <select name="program" id="program" class="form-control">
+                    <option value="" {{ old('program') == '' ? 'selected' : '' }}>البرنامج</option>
+                    @foreach ($programs as $program)
+                    <option value="{{ $program->name }}" {{ old('program') == $program->name ? 'selected' : '' }}>
+                        {{ $program->name }}
+                    </option>
+                    @endforeach
                 </select>
                 @error('program')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
-            <button type="submit" name="save">حفظ</button>
+            <button type="submit" name="save">عرض</button>
         </form>
     </div>
 @endsection

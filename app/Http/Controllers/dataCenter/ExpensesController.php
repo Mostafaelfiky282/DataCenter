@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\dataCenter;
 
+use App\Models\Program;
 use App\Models\Expenses;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ExpensesController extends Controller
 {
     public function index(){
-        return view('expenses.add');
+        $college_id = auth()->user()->college_id; 
+        $departments = Department::where('college_id', $college_id)->get();
+        $programs = Program::where('college_id', $college_id)->get();
+        return view('expenses.add', compact('programs'));
     }
 
     public function create(Request $request){
@@ -42,7 +47,9 @@ class ExpensesController extends Controller
     }
 
     public function report(){
-        return view('expenses/report');
+        $college_id = auth()->user()->college_id; 
+        $programs = Program::where('college_id', $college_id)->get();
+        return view('expenses/report',compact('programs'));
     }
 
 
@@ -82,7 +89,9 @@ class ExpensesController extends Controller
 
     public function edit($id){
         $expense = Expenses::findOrFail($id);
-        return view('expenses.edit', compact('expense'));
+        $college_id = auth()->user()->college_id; 
+        $programs = Program::where('college_id', $college_id)->get();
+        return view('expenses.edit', compact('expense','programs'));
     }
 
     public function update(request $request, $id){

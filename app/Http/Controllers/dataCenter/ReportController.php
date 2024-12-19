@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\dataCenter;
 
+use App\Models\Year;
 use App\Models\College;
 use App\Models\Student;
 use App\Models\Department;
@@ -12,9 +13,9 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $colleges = College::All();
         $departments = Department::All();
-        return view('student.report', compact('departments','colleges'));
+        $years = Year::where('status', 'active')->get();
+        return view('student.report', compact('departments','years'));
     }
 
     public function generateReport(Request $request)
@@ -35,6 +36,9 @@ class ReportController extends Controller
         }
         if ($request->filled('level')) {
             $query->where('level', $request->input('level'));
+        }
+        if ($request->filled('year')) {
+            $query->where('year', $request->input('year'));
         }
 
         if ($request->filled('language')) {

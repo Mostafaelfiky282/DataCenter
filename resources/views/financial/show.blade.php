@@ -20,8 +20,10 @@
                             <th>المبلغ لكل فرد</th>
                             <th>العدد الكلي</th>
                             <th>المبلغ الكلي</th>
+                            @if(auth()->user()->role != 'User')
                             <th>تعديل</th>
                             <th>حذف</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -35,7 +37,7 @@
                                 <td>{{ $financial->price }}</td>
                                 <td>{{ ($financial->Male_students_amount +  $financial->female_students_amount) }}</td>
                                 <td>{{ (($financial->Male_students_amount + $financial->female_students_amount) * $financial->price) }}</td>
-                                
+                                @if(auth()->user()->role != 'User')
                                 <td><a href="{{route('financial.edit',$financial->id)}}" class="btn btn-info">تعديل</a></td>
                                 <td>
                                     <br>
@@ -46,6 +48,7 @@
                                     </form>
                                 </td>
                             </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>

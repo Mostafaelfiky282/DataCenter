@@ -20,7 +20,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <h1>عرض احصائيات الطلاب </h1>
+            <h1>عرض المساعدات المالية </h1>
             <form method="post"
                     action="{{ route('financial.show')}}">
                 @csrf  

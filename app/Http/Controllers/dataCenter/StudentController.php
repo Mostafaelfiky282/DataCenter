@@ -85,16 +85,25 @@ public function create(request $request)
     }
     public function edit($id)
     {
+        $college_id = auth()->user()->college_id; 
+        $departments = Department::where('college_id', $college_id)->get();
+        $programs = Program::where('college_id', $college_id)->get();
+        $years = Year::where('status', 'active')->get();
         $student = Student::findOrFail($id);
-        return view('student.edit', compact('student'));
+        return view('student.edit',  compact('student','departments','programs','years'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
+            'college' => ['required', 'string', 'max:50', 'min:3'],
             'department' => ['required', 'string', 'max:100'],
+            'program' => ['required', 'string'],
+            'year' => ['required', 'min:9', 'max:20'],
             'level' => ['required', 'string'],
             'nationality' => ['required', 'string'],
+            'language'=>['required', 'string'],
+            'status' => ['required', 'string'],
             'male_freshmen' => ['required', 'integer', 'min:0'],
             'female_freshmen' => ['required', 'integer', 'min:0'],
             'male_remain' => ['required', 'integer', 'min:0'],

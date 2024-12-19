@@ -46,9 +46,8 @@
                                 <a class="dropdown-item" href="{{url('/rewords')}}">احصائيات المكافات</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="{{route('financial')}}">المساعدات المالية</a>
+                                <a class="dropdown-item" href="{{route('financial')}}">احصائيات المساعدات المالية </a>
                             </li>
-                            <li><a class="dropdown-item" href="#">الرعايه الطلابيه</a></li>
                         </ul>
                     </li>
                     @endif
@@ -70,10 +69,6 @@
                             <li>
                                 <a class="dropdown-item" href="{{route('financial.report')}}" > احصائيات المساعدات المالية</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="#">الانشطة الدولية بالجامعات</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#">الرعاية الطلابية</a></li>
                         </ul>
                     </li>
                     <li class="nav-item px-5">

@@ -25,15 +25,9 @@
                     action="{{ url('/report-show') }}">
                 @csrf  
                 <div class="form-group">
-                    <label for="college">الكلية</label>
-                    <select name="college" id="college" class="form-control">
-                        <option value="" {{ old('college') == '' ? 'selected' : '' }}>اختر الكلية   </option>
-                        @foreach ($colleges as $college)
-                        <option value="{{ $college->name }}" {{ old('college') == $college->name ? 'selected' : '' }}>
-                            {{ $college->name }}
-                        </option>
-                        @endforeach
-                    </select>
+                    <label for="college"> الكلية</label>
+                    <input type="text" value="{{ auth()->user()->college->name }}" readonly name="college"
+                        class="form-control">
                     @error('college')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -68,8 +62,22 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="year"> السنة الدراسية</label>
+                    <select name="year" id="year" class="form-control">
+                        <option value="" {{ old('year') == '' ? 'selected' : '' }}>العام الدراسي</option>
+                        @foreach ($years as $year)
+                        <option value="{{ $year->value }}" {{ old('year') == $year->value ? 'selected' : '' }}>
+                            {{ $year->value }}
+                        </option>
+                        @endforeach
+                    </select>
+                    @error('year')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="language">لغة الدراسة</label>
-                    <select name="language" id="language">
+                    <select name="language" id="language" class="form-control">
                         <option value="" {{ old('language') == '' ? 'selected' : '' }}>لغة الدراسة</option>
                         <option value="العربية" {{ old('language') == 'العربية' ? 'selected' : '' }}>العربية</option>
                         <option value="الانجليزية" {{ old('language') == 'الانجليزية' ? 'selected' : '' }}>الانجليزية
