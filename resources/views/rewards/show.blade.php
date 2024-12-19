@@ -25,8 +25,10 @@
                             <th>عدد الطلاب</th>
                             <th>عدد الطالبات</th>
                             <th>المبلغ لكل طالب</th>
+                            @if(auth()->user()->role != 'User')
                             <th>تعديل</th>
                             <th>حذف</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +40,7 @@
                                 <td>{{ $reward->male_students_amount }}</td>
                                 <td>{{ $reward->female_students_amount}}</td>
                                 <td>{{ $reward->price }}</td>
-
+                                @if(auth()->user()->role != 'User')
                                  <td><a href="{{ route('rewords.edit', $reward->id) }}" class="btn btn-info">تعديل</a></td>
                                 <td>
                                     <br>
@@ -48,6 +50,7 @@
                                         <button type="submit" class="btn btn-danger ">حذف</button>
                                     </form>
                                 </td> 
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

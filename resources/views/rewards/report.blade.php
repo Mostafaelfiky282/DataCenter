@@ -13,11 +13,8 @@
             @endif
             <div class="form-group">
                 <label for="college"> الكلية</label>
-                <select name="college" id="college">
-                    <option value=""> الكلية</option>
-                    <option value="حاسبات ومعلومات">حاسبات ومعلومات</option>
-                    <option value="علوم">علوم</option>
-                </select>
+                <input type="text" value="{{ auth()->user()->college->name }}" readonly name="college"
+                    class="form-control">
                 @error('college')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -25,7 +22,7 @@
 
             <div class="form-group">
                 <label for="level"> الفرقة</label>
-                <select name="level" id="level">
+                <select name="level" id="level" class="form-control">
                     <option value="">الفرقة</option>
                     <option value="اعدادي"> اعدادي</option>
                     <option value="اولي"> فرقة اولي</option>
@@ -43,7 +40,7 @@
 
             <div class="form-group">
                 <label for="النوع"> نوع المكافأة</label>
-                <select name="type" id="النوع">
+                <select name="type" id="النوع" class="form-control">
                     <option value="">نوع المكافأة</option>
                     <option value="اوائل ثانوية عامة">اوائل ثانوية عامة</option>
                     <option value="فوق ال 80%">فوق ال 80%</option>

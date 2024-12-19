@@ -14,11 +14,8 @@
             @endif
             <div class="form-group">
                 <label for="college"> الكلية</label>
-                <select name="college" id="college">
-                    <option value="{{ $reward->college }}"> {{ $reward->college }}</option>
-                    <option value="حاسبات ومعلومات">حاسبات ومعلومات</option>
-                    <option value="علوم">علوم</option>
-                </select>
+                <input type="text" value="{{ auth()->user()->college->name }}" readonly name="college"
+                    class="form-control">
                 @error('college')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -26,7 +23,7 @@
 
             <div class="form-group">
                 <label for="level"> الفرقة</label>
-                <select name="level" id="level">
+                <select name="level" id="level" class="form-control">
                     <option value="{{ $reward->level }}"> {{ $reward->level }}</option>
                     
                     <option value="اولي"> فرقة اولي</option>
@@ -42,7 +39,7 @@
          
             <div class="form-group">
                 <label for="النوع"> نوع المكافأة</label>
-                <select name="type" id="النوع">
+                <select name="type" id="النوع" class="form-control">
                     <option value="{{ $reward->type }}"> {{ $reward->type }}</option>
                     <option value="اوائل ثانوية">اوائل ثانوية</option>
                     <option value="فوق 80% "> فوق 80% </option>
@@ -55,14 +52,14 @@
             </div>
             <div class="form-group">
                 <label for="level"> عدد الطلاب</label>
-                <input type="number" value="{{$reward->male_students_amount}}" name="male_students_amount">
+                <input type="number" class="form-control" value="{{$reward->male_students_amount}}" name="male_students_amount">
                 @error('male_students_amount')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
             </div>
             <div class="form-group">
                 <label for="level"> عدد الطالبات </label>
-                <input type="number" value="{{$reward->female_students_amount}}"  name="female_students_amount">
+                <input type="number" class="form-control" value="{{$reward->female_students_amount}}"  name="female_students_amount">
                 @error('female_students_amount')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -70,7 +67,7 @@
             
             <div class="form-group">
                 <label for="level"> المبلغ لكل طالب</label>
-                <input type="number" value="{{$reward->price}}" name="price">
+                <input type="number" class="form-control" value="{{$reward->price}}" name="price">
                 @error('price')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
