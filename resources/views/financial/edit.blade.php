@@ -15,90 +15,69 @@
 
     <body>
         <div class="form-container">
-            <h1>تعديل احصائيات الطلاب المقيدين</h1>
+            <h1>تعديل احصائية المساعدات المالية</h1>
             @if (session('success'))
                 <div class="alert alert-success text-center">
                     {{ session('success') }}
                 </div>
             @endif
-            <form method="post" action="{{ route('students.update', $student->id) }}">
+            <form method="post" action="{{route('financial.update',$financial->id)}}">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="department">القسم</label>
-                    <select name="department" id="department" class="form-control">
-                        <option value="" {{ $student->department == '' ? 'selected' : '' }}>{{ $student->department }}
-                        </option>
-                        <option value="عام" {{ old('department') == 'عام' ? 'selected' : '' }}>عام</option>
-                        <option value="تكنولوجيا المعلومات"
-                            {{ old('department') == 'تكنولوجيا المعلومات' ? 'selected' : '' }}>تكنولوجيا المعلومات</option>
-                        <option value="علوم الحاسب" {{ old('department') == 'علوم الحاسب' ? 'selected' : '' }}>علوم الحاسب
-                        </option>
-                        <option value="نظم المعلومات" {{ old('department') == 'نظم المعلومات' ? 'selected' : '' }}>نظم
-                            المعلومات</option>
+                    <label for="college">الكلية</label>
+                    <input type="text" value="{{ auth()->user()->college->name }}" readonly name="college" class="form-control">
+                    @error('college')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="year">العام الدراسي</label>
+                    <select name="year" id="year" class="form-control">
+                        <option value="{{$financial->year}}" {{ old('year') == $financial->year ? 'selected' : '' }}>{{$financial->year}}</option>
+                        @foreach ($years as $year)
+                            <option value="{{ $year->value }}" {{ old('year') == $year->value ? 'selected' : '' }}>
+                                {{ $year->value }}
+                            </option>
+                        @endforeach
                     </select>
-                    @error('department')
+                    @error('year')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+
                 <div class="form-group">
-                    <label for="level">الفرقة</label>
-                    <select name="level" id="level" class="form-control">
-                        <option value="" {{ $student->level == '' ? 'selected' : '' }}>{{ $student->level }}
-                        </option>
-                        <option value="الاعدادي" {{ old('level') == 'الاعدادي' ? 'selected' : '' }}>الاعدادي</option>
-                        <option value="الأولى" {{ old('level') == 'الأولى' ? 'selected' : '' }}>الأولى</option>
-                        <option value="الثانية" {{ old('level') == 'الثانية' ? 'selected' : '' }}>الثانية</option>
-                        <option value="الثالثة" {{ old('level') == 'الثالثة' ? 'selected' : '' }}>الثالثة</option>
-                        <option value="الرابعة" {{ old('level') == 'الرابعة' ? 'selected' : '' }}>الرابعة</option>
+                    <label for="type">نوع المساعدة</label>
+                    <select name="type" id="type" class="form-control">
+                        <option value="{{$financial->type}}" {{ old('type') == $financial->type ? 'selected' : '' }}>{{$financial->type}}</option>
+                        <option value="مساعدات مالية" {{ old('type') == 'مساعدات مالية' ? 'selected' : '' }}>مساعدات مالية</option>
+                        <option value="مساعدات عينية" {{ old('type') == 'مساعدات عينية' ? 'selected' : '' }}>مساعدات عينية</option>
+                        <option value="مساعدات اجتماعية اخرى" {{ old('type') == 'مساعدات اجتماعية اخرى' ? 'selected' : '' }}>مساعدات اجتماعية اخرى</option>
                     </select>
-                    @error('level')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-
-                <div class="form-group">
-                    <label for="nationality">الجنسية</label>
-                    <select name="nationality" id="nationality">
-                        <option value="" {{ $student->nationality == '' ? 'selected' : '' }}>
-                            {{ $student->nationality }}</option>
-                        <option value="مصري" {{ old('nationality') == 'مصري' ? 'selected' : '' }}>مصري</option>
-                        <option value="وافد" {{ old('nationality') == 'وافد' ? 'selected' : '' }}>وافد</option>
-                    </select>
-                    @error('nationality')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="new_male_students"> عدد الطلاب الذكور الجدد</label>
-                    <input type="number" value="{{ $student->male_freshmen }}" name="male_freshmen"
-                        id="new_male_students">
-                    @error('new_male_students')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <label for="new_female_students"> عدد الطلاب الاناث الجدد</label>
-                    <input type="number" value="{{ $student->female_freshmen }}" name="female_freshmen"
-                        id="new_female_students">
-                    @error('new_female_students')
+                    @error('type')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <div class="form-group">
-                    <label for="remain_male_students"> عدد الطلاب الذكور الباقيين</label>
-                    <input type="number" value="{{ $student->male_remain }}" name="male_remain" id="remain_male_students">
-                    @error('remain_male_students')
+                    <label for="Male_students_amount">عدد الطلاب الذكور</label>
+                    <input type="number" value="{{$financial->Male_students_amount}}" name="Male_students_amount" id="Male_students_amount">
+                    @error('Male_students_amount')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
-                    <label for="remain_female_students"> عدد الطلاب الاناث الباقيين</label>
-                    <input type="number" value="{{ $student->female_remain }}"name="female_remain"
-                        id="remain_female_students">
-                    @error('remain_female_students')
+
+                    <label for="female_students_amount">عدد الطلاب الإناث</label>
+                    <input type="number" value="{{$financial->female_students_amount}}" name="female_students_amount" id="female_students_amount">
+                    @error('female_students_amount')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    <label for="price">المبلغ لكل فرد</label>
+                    <input type="number" value="{{$financial->price}}" name="price" id="price">
+                    @error('price')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-
                 <button type="submit" name="submit" style="margin-left: -400px;">تعديل</button>
             </form>
         </div>

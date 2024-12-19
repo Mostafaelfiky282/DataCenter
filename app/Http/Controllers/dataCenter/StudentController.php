@@ -20,7 +20,6 @@ class StudentController extends Controller
         return view('student.add', compact('departments','programs','years'));
     }
     
-
 public function create(request $request)
     {
         $request->validate([
@@ -108,9 +107,4 @@ public function create(request $request)
         return redirect()->route('report')->with('success', 'تم تحديث بيانات الطلاب بنجاح');
     }
  
-
-
-
-
-
 }

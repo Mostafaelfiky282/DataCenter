@@ -15,17 +15,17 @@
     </head>
 
     <body>
-        <h1 class="text-center">عرض بياني عن احصائية الطلاب</h1>
+        <h1 class="text-center">عرض بياني عن احصائية الطلاب المستفديين من المساعدات المالية</h1>
         @if ($total_students === 0)
         <p  class="text-center">لا يوجد طلاب وفقًا للمعايير المحددة.</p>
         @else
         <canvas id="studentChart" width="400" height="150"></canvas>
         <script>
             const studentData = {
-                labels: ['العدد الكلي', 'الطلاب الذكور الجدد', 'الطلاب الاناث الجدد', 'الطلاب الذكور الباقيين','الطلاب الذكور الباقيين'],
+                labels: ['العدد الكلي', 'الطلاب الذكور', 'الطلاب الاناث'],
                 datasets: [{
                     label: 'عدد الطلاب',
-                    data: [{{ $total_students}}, {{ $male_freshmen }}, {{ $female_freshmen }}, {{ $male_remain }}, {{ $female_remain }}],
+                    data: [{{ $total_students}}, {{ $male_student}}, {{ $female_student }}],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)', 
                         'rgba(54, 162, 235, 0.2)', 

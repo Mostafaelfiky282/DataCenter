@@ -57,4 +57,8 @@ Route::post('/financial-store', [FinancialController::class, "store"])->name('fi
 Route::get('/financial-report', [FinancialController::class, "report"])->name('financial.report');
 Route::post('/financial-show', [FinancialController::class, "show"])->name('financial.show');
 Route::delete('/financial/{financial}', [FinancialController::class, 'destroy'])->name('financial.destroy');
-include ('admin.php');
+Route::get('/financial/{id}/edit', [FinancialController::class, 'edit'])->name('financial.edit');
+Route::put('/financial/{id}', [FinancialController::class, 'update'])->name('financial.update');
+Route::post('/financial-excel', [FinancialController::class, 'excel'])->name('financial.excel');
+Route::post('/financial-chart', [FinancialController::class, 'chart'])->name('financial.chart');
+include('admin.php');
