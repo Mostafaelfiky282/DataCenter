@@ -48,6 +48,10 @@
                             <li>
                                 <a class="dropdown-item" href="{{route('financial')}}">احصائيات المساعدات المالية </a>
                             </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('student_activity') }}"> احصائيات الانشطه الطلابية 
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     @endif
@@ -68,6 +72,9 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{route('financial.report')}}" > احصائيات المساعدات المالية</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('student_activity.report') }}">احصائيات الانشطة الطلابيه</a>
                             </li>
                         </ul>
                     </li>

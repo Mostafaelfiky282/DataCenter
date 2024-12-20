@@ -8,6 +8,7 @@ use App\Http\Controllers\dataCenter\HomeController;
 use App\Http\Controllers\dataCenter\ReportController;
 use App\Http\Controllers\dataCenter\RewordsController;
 use App\Http\Controllers\dataCenter\StudentController;
+use App\Http\Controllers\dataCenter\Student_ActivityController;
 
 Route::get('/home', [HomeController::class, 'index']);
 
@@ -61,4 +62,14 @@ Route::get('/financial/{id}/edit', [FinancialController::class, 'edit'])->name('
 Route::put('/financial/{id}', [FinancialController::class, 'update'])->name('financial.update');
 Route::post('/financial-excel', [FinancialController::class, 'excel'])->name('financial.excel');
 Route::post('/financial-chart', [FinancialController::class, 'chart'])->name('financial.chart');
+
+Route::get('/student_activity',[Student_ActivityController::class,"index"])->name('student_activity');
+Route::post('/student_activity-create', [Student_ActivityController::class, "create"])->name('student_activity.create');
+Route::get('/student_activity-report', [Student_ActivityController::class, "report"])->name('student_activity.report');
+Route::post('/student_activity-show', [Student_ActivityController::class, "show"])->name('student_activity.show');
+Route::delete('/student_activity/{student_ac}', [Student_ActivityController::class, 'destroy'])->name('student_activity.destroy');
+Route::get('/student_activity/{id}/edit', [Student_ActivityController::class, 'edit'])->name('student_activity.edit');
+Route::put('/student_activity/{id}', [Student_ActivityController::class, 'update'])->name('student_activity.update');
+Route::post('/excel', [Student_ActivityController::class, 'excel'])->name('student_activity.excel');
+Route::post('/pianiStu', [Student_ActivityController::class, 'chart'])->name('pianiStu');
 include('admin.php');
